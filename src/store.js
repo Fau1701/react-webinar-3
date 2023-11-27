@@ -1,9 +1,20 @@
+function newCodeGenerator (set) {
+  let newCode = Math.floor(Math.random() * 100000 + 1);
+  if (set.has(newCode)) {
+    return newCodeGenerator(set);
+  } else {
+    return newCode;
+  }        
+}
+
+
 /**
  * Хранилище состояния приложения
  */
 class Store {
   constructor(initState = {}) {
     this.state = initState;
+    this.codes = new Set(this.state.list.map((el) => el.code));
     this.listeners = []; // Слушатели изменений состояния
   }
 
@@ -41,10 +52,14 @@ class Store {
   /**
    * Добавление новой записи
    */
-  addItem() {        
+  addItem() {   
+    let codesSet = this.codes;
+    let code = newCodeGenerator(codesSet);
+    codesSet.add(code);
+       
     this.setState({
       ...this.state,
-      list: [...this.state.list, {code: this.state.list.length ? this.state.list[this.state.list.length - 1].code + 1 : 1, title: 'Новая запись', count: 0}]
+      list: [...this.state.list, {code: code, title: 'Новая запись', count: 0}]
     })
   };
 
@@ -60,7 +75,7 @@ class Store {
   };
 
   /**
-   * Выделение записи по коду
+   * Выделение записи по коду///
    * @param code
    */
   selectItem(code) {
