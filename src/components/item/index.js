@@ -35,7 +35,7 @@ function Item(props) {
       </div>
       <div className='Item-actions'>
         <button onClick={callbacks.onDelete}>
-          Удалить
+          Добавить
         </button>
       </div>
     </div>
