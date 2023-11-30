@@ -54,13 +54,13 @@ class Store {
    * Удаление записи по коду
    * @param code
    */
-  deleteItem(code) {
-    this.setState({
-      ...this.state,
-      // Новый список, в котором не будет удаляемой записи
-      list: this.state.list.filter(item => item.code !== code)
-    })
-  };
+  // deleteItem(code) {
+  //   this.setState({
+  //     ...this.state,
+  //     // Новый список, в котором не будет удаляемой записи
+  //     list: this.state.list.filter(item => item.code !== code)
+  //   })
+  // };
 
   /**
    * Выделение записи по коду

@@ -1,0 +1,10 @@
+.Cart-nav {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 10px 10px 10px;
+}
+
+.Cart-nav_message {
+    font-weight: bold;
+}
