@@ -11,7 +11,7 @@ const CartNav = ({setActive, total, amount}) => {
         one: 'товар',
         few: 'товара',
         many: 'товаров'
-      })}` : 'пусто'} </span><span>{total?`${total} ₽`:''}</span></p>
+      })}` : 'пусто'} </span><span>{total?`/ ${total} ₽`:''}</span></p>
         <ButtonModal setActive={setActive}/>
     </nav>
   )
