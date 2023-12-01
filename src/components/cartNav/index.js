@@ -4,6 +4,7 @@ import { plural } from '../../utils'
 import './style.css'
 
 const CartNav = ({setActive, total, amount}) => {
+  console.log('cart-nav');
   return (
     <nav className='Cart-nav'>
         <p>В корзине:&nbsp; </p>

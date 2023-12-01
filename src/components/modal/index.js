@@ -3,6 +3,7 @@ import Cart from '../cart'
 import './style.css'
 
 const Modal = ({active, total, setActive, removeFromCart, resultArr}) => {
+  console.log('modal');
     return (
 
       <div className={active? 'Modal active' : 'Modal'}>
@@ -19,6 +20,6 @@ const Modal = ({active, total, setActive, removeFromCart, resultArr}) => {
      )
   }
   
-  export default Modal;
+  export default React.memo(Modal);
 
  

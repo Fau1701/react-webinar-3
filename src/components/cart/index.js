@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 
 const Cart = ({resultArr, setActive, removeFromCart, total}) => {
-  
+  console.log('cart');
   return (
     <div className='Cart'>
         <div className='Cart-header'>

@@ -5,23 +5,22 @@ import './style.css';
 
 function Item(props) {
 
-  const callbacks = {
-    onClick: () => {
-      props.onSelect(props.item.code);
+  // const callbacks = {
+  //   onClick: () => {
+  //     props.onSelect(props.item.code);
       // if (!props.item.selected) {
       //   setCount(count + 1);
       // }
-    },
+    // },
     // onDelete: (e) => {
     //   e.stopPropagation();
     //   props.onDelete(props.item.code);
 
     // },
-  }
+  // }
 
   return (
-    <div className={'Item' + (props.item.selected ? ' Item_selected' : '')}
-         onClick={callbacks.onClick}>
+    <div className={'Item'}>
       <div className='Item-code'>{props.item.code}</div>
       <div className='Item-title'>
         {props.item.title} 
@@ -49,14 +48,14 @@ Item.propTypes = {
     count: PropTypes.number
   }).isRequired,
   // onDelete: PropTypes.func,
-  onSelect: PropTypes.func
+  // onSelect: PropTypes.func
 };
 
-Item.defaultProps = {
+// Item.defaultProps = {
   // onDelete: () => {
   // },
-  onSelect: () => {
-  },
-}
+  // onSelect: () => {
+  // },
+// }
 
 export default React.memo(Item);
