@@ -21,7 +21,7 @@ const Cart = ({resultArr, setActive, removeFromCart, total}) => {
             }
           </ul>
           <div className='Cart-sum'>
-               <div>Итого <span>{total} &#8381;</span></div>    
+               <div>Итого <span className='Cart-sum__number'>{total} &#8381;</span></div>    
           </div>
          
     </div>
