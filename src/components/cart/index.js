@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-const Cart = ({resultArr, setActive, removeFromCart, total}) => {
+const Cart = ({cart, setActive, removeFromCart, total}) => {
   console.log('cart');
   return (
     <div className='Cart'>
@@ -10,7 +10,7 @@ const Cart = ({resultArr, setActive, removeFromCart, total}) => {
           <button className='Card-header_button' onClick={() => setActive(false)}>Закрыть</button>
         </div>
         <ul className='Cart-lines'>
-            {resultArr.map((item, index) => (
+            {cart.map((item, index) => (
                     <li key={index + 1} className='Cart-line'>
                         <div className='Cart-code'>{item.code}</div>
                         <div className='Cart-title'>{item.title}</div>

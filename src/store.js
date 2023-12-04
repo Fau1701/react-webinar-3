@@ -41,11 +41,20 @@ class Store {
   }
 
   setItemToCart(code) {
+    let arr;
+    if (this.state.cart.map(i => i.code).includes(code)) {
+      console.log(true);
+      arr = this.state.cart.map(i => (i.code === code) ? {...i, amount: i.amount +=1} : i);
+      } else {
+        let item = this.state.list.filter(item => item.code === code);
+        let arrItem = item[0];
+        arrItem.amount = 1; 
+        arr = [...this.state.cart, arrItem];
+      }
       this.setState({
         ...this.state,
-        cart: [...this.state.cart, ...this.state.list.filter(item => item.code === code)]
-      })
-      
+        cart: arr,
+     })      
     };
 
   removeItemFromCart(code) {
