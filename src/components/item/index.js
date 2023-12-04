@@ -32,7 +32,7 @@ function Item(props) {
       </div>
       <div className='Item-price'>{props.item.price} &#8381;</div>
       <div className='Item-actions'>
-        <button onClick={() => props.setItemToCart(props.item.title)}>
+        <button onClick={() => props.setItemToCart(props.item.code)}>
           Добавить
         </button>
       </div>

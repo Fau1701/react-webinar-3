@@ -16,7 +16,7 @@ const Cart = ({resultArr, setActive, removeFromCart, total}) => {
                         <div className='Cart-title'>{item.title}</div>
                         <div className='Cart-price'>{item.price} &#8381;</div>
                         <div className='Cart-amount'>{item.amount} шт</div> 
-                        <button onClick={() => removeFromCart(item.title)}>Удалить</button>
+                        <button onClick={() => removeFromCart(item.code)}>Удалить</button>
                     </li>))
             }
           </ul>
@@ -28,4 +28,4 @@ const Cart = ({resultArr, setActive, removeFromCart, total}) => {
   )
 }
 
-export default Cart
+export default React.memo(Cart)

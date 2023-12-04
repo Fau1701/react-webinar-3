@@ -14,8 +14,8 @@ import CartNav from "./components/cartNav";
  */
 function App({store}) {
   const[modalActive, setModalActive] = useState(false);
-  const [cart, setCart] = useState([]);
   const list = store.getState().list;
+  const cart = store.getState().cart;
 
   const callbacks = {
     // onDeleteItem: useCallback((code) => {
@@ -30,36 +30,33 @@ function App({store}) {
   //     store.addItem();
   //   }, [store]),
    
-    onSetItemToCart: useCallback((item) => {
-      setCart([...cart, item]);  
+    onSetItemToCart: useCallback((code) => {
+      store.setItemToCart(code);
     }, [cart]),
 
-    onRemoveFromCart: useCallback((title) => {
-      const listItems = cart.filter((item) => item !== title);
-      setCart(listItems);
+    onRemoveFromCart: useCallback((code) => {
+      store.removeItemFromCart(code);
     }, [cart])
   }
-  const makeData = (arr, list) => {
-    let set = new Set(arr);
+  const makeData = (cart) => {
+    let set = new Set(cart.map(i => i.code));
     let items = [];
-    set.forEach((el) => {
-        let amount = 0;
-        arr.forEach((i) => {
-           if (i === el) amount +=1}) 
-        let item = {'title': el, 'amount': amount};
-        list.forEach((i) => {
-          if (i.title === item.title) {
-            item.code = i.code;
-            item.price = i.price;
-          }
-        })
-        items.push(item);
+    let item;
+    set.forEach(el => {
+      let amountItem = 0;
+      cart.forEach(i => { if (i.code === el) {
+        amountItem +=1;
+        item = {amount: amountItem, title: i.title, code: i.code, price: i.price}; 
+      }})
+      items.push(item);
     })
     let total = items.map(i => i.price * i.amount).reduce((acc, i) => i + acc, 0);
     let amount = set.size;
     return [items, total, amount];
+
 } 
 const [resultArr, total, amount] = makeData(cart, list);
+
 
   return (
     <PageLayout>

@@ -40,6 +40,20 @@ class Store {
     for (const listener of this.listeners) listener();
   }
 
+  setItemToCart(code) {
+      this.setState({
+        ...this.state,
+        cart: [...this.state.cart, ...this.state.list.filter(item => item.code === code)]
+      })
+      
+    };
+
+  removeItemFromCart(code) {
+        this.setState({
+          ...this.state,
+          cart: this.state.cart.filter(item => item.code !== code)
+        })
+  };
   /**
    * Добавление новой записи
    */
