@@ -8,7 +8,7 @@ function List({list, setItemToCart}) {
     <div className='List'>{
       list.map(item =>
         <div key={item.code} className='List-item'>
-          <Item item={item} setItemToCart={setItemToCart}/>
+          <Item item={item} setItemToCart={setItemToCart} />
         </div>
       )}
     </div>

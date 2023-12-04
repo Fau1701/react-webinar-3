@@ -18,4 +18,4 @@ const CartNav = ({setActive, total, amount}) => {
   )
 }
 
-export default CartNav
+export default React.memo(CartNav)
