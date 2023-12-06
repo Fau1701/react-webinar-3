@@ -7,6 +7,7 @@ import List from "../../components/list";
 import useStore from "../../store/use-store";
 import useSelector from "../../store/use-selector";
 
+
 function Main() {
 
   const store = useStore();
@@ -35,6 +36,7 @@ function Main() {
   };
 
   return (
+    
     <PageLayout>
       <Head title='Магазин'/>
       <BasketTool onOpen={callbacks.openModalBasket} amount={select.amount}

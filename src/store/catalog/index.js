@@ -15,7 +15,13 @@ class Catalog extends StoreModule {
   }
 
   async load() {
-    const response = await fetch('/api/v1/articles');
+    const response = await fetch('/api/v1/articles', {
+    method: 'GET',
+    headers: {
+      'Accept-language': 'ru',
+      },
+    }).then((resp) => resp);
+  
     const json = await response.json();
     this.setState({
       ...this.getState(),
